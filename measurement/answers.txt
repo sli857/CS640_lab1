@@ -1,0 +1,8 @@
+Q2:
+Latency between h1 and h4 should approximately equal to the sum of latencies of L1, L2, L3. 
+The sum of the average latency of each link is ~162ms, which is the expected latency between h1 and h4.
+
+Throughput...?
+
+
+Q3:
