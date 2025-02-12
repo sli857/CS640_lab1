@@ -3,7 +3,7 @@ Prediction:
 The expected latency between h1 and h4 should approximately equal to the sum of latencies of L1, L2, L3. 
 Prediction: ~162 ms
 
-The expected throughput bewteen h1 and h4 should approximately equal to the minimum of throughputs of links L1, L2, L3.
+The expected throughput between h1 and h4 should approximately equal to the minimum of throughputs of links L1, L2, L3.
 Prediction: ~1707540.800 mbps
    
 Q3:
@@ -11,7 +11,7 @@ Prediction:
 We believe no matter how many hosts are simultaneously talking to hosts connected to s4, the latency should remain the same as a single talk.
 Prediction for two pairs and three pairs: ~162 ms
 
-However for throughput, I think the throughput will be devided by the number of active talks.
+However for throughput, I think the throughput will be divided by the number of active talks.
 Prediction for two pairs: ~1707540.800/2 = ~853770.4 mbps
 Prediction for three pairs: ~1707540.800/2 = ~569180.267 mbps
 
