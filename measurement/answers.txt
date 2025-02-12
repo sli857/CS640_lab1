@@ -1,8 +1,62 @@
 Q2:
-Latency between h1 and h4 should approximately equal to the sum of latencies of L1, L2, L3. 
-The sum of the average latency of each link is ~162ms, which is the expected latency between h1 and h4.
+Prediction:
+The expected latency between h1 and h4 should approximately equal to the sum of latencies of L1, L2, L3. 
+Prediction: ~162 ms
 
-Throughput...?
-
-
+The expected throughput bewteen h1 and h4 should approximately equal to the minimum of throughputs of links L1, L2, L3.
+Prediction: ~1707540.800 mbps
+   
 Q3:
+Prediction:
+We believe no matter how many hosts are simultaneously talking to hosts connected to s4, the latency should remain the same as a single talk.
+Prediction for two pairs and three pairs: ~162 ms
+
+However for throughput, I think the throughput will be devided by the number of active talks.
+Prediction for two pairs: ~1707540.800/2 = ~853770.4 mbps
+Prediction for three pairs: ~1707540.800/2 = ~569180.267 mbps
+
+Measurement:
+Two pairs:
+    avg latency: 
+                h1-h4: 160.645 ms 
+                h7-h9: 161.969 ms
+                Prediction is correct. Indeed, the latencies are not affected by multiplexing.
+    throughput: 
+                h1-h4: 756331.200 mbps
+                h7-h9: 806041.600 mbps
+                Prediction is correct, each of them is approximately half of the original.
+
+Three pairs:
+    avg latency: 
+                h1-h4: 161.685 ms
+                h7-h9: 161.520 ms
+                h8-h10: 162.160 ms
+                Prediction is correct.
+    throughput: 
+                h1-h4: 564565.600 mbps
+                h7-h9: 562142.000 mbps
+                h8-h10: 675383.200 mbps
+                Prediction is correct, each of them is approximately one third of the original.
+
+Q4:
+Prediction:
+We believe the latencies are still not affected, which means h1-h4 is the sum of L1, L2, L3, and h5-h6 is the sum of L4, L2, L5
+    h1-h4: ~162 ms
+    h5-h6: ~41 ms
+
+However for throughput, the throughput of L2 should be halved and the become the minimum for both sets {L1, L2, L3} and {L4, L2, L5}.
+Therefore, the throughput of both paths should be approximately half of L2's throughput.
+    h1-h4: ~866857.6 mbps
+    h5-h6: ~866857.6 mbps
+
+Measurement:
+    avg latency:
+        h1-h4: 161.719 ms
+        h5-h6: 41.187 ms
+        Prediction is correct. Indeed, the latency are not affected in this case.
+    throughput:
+        h1-h4: 773812.400 mbps
+        h5-h6: 819841.200 mbps
+        Prediction is mostly correct. Each throughput is approximately half of L2's throughput. However, both actual throughputs are lower,
+        which indicates there are more obstacles such as congestion or queueing.
+
